@@ -1,0 +1,13 @@
+version: 2
+
+seeds:
+  - name: olist_order_reviews_dataset
+    config:
+      column_types:
+        review_id: string
+        order_id: string
+        review_score: string
+        review_comment_title: string
+        review_comment_message: string
+        review_creation_date: string
+        review_answer_timestamp: string
