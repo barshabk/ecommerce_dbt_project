@@ -17,6 +17,9 @@ select
     order_items.price,
     products.product_category_name,
     reviews.review_score
+    case 
+        when reviews.review_score = 5 then 1 else 0
+    end as top_rated
 from order_items
 join products
     on order_items.product_id = products.product_id
