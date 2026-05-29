@@ -18,6 +18,10 @@ customers as (
         customers.customer_city,
         customers.customer_state,
         customers.customer_zip_code_prefix,
+-- flag for if order was delivered on time
+        case 
+            when orders.order_delivered_customer_date <= orders.order_estimated_delivery_date then 1 else 0 
+        end as delivered_on_time
     FROM orders
     JOIN customers
         on orders.customer_id = customers.customer_id
