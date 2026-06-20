@@ -1,4 +1,3 @@
-
 with
 
 source as (
@@ -7,15 +6,10 @@ source as (
 
 renamed as (
     select
-        -- ids (strings)
         customer_id,
         customer_unique_id,
-
-        -- strings
-        LOWER(TRIM(customer_city)) as customer_city,
-        LOWER(TRIM(customer_state)) as customer_state,
-
-        -- numerics (integer)
+        customer_city as customer_city,
+        customer_state as customer_state,
         customer_zip_code_prefix
 
     from source

@@ -1,4 +1,3 @@
--- stg_brazillian_dbt__product_category.sql
 with
 
 source as (
@@ -7,9 +6,8 @@ source as (
 
 renamed as (
     select
-        -- strings
-        LOWER(TRIM(product_category_name)) as product_category_name,
-        LOWER(TRIM(product_category_name_english)) as product_category_name_english
+        product_category_name as product_category_name,
+        product_category_name_english) as product_category_name_english
 
     from source
 )

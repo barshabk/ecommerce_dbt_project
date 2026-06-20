@@ -1,4 +1,3 @@
--- stg_brazillian_dbt__geolocation.sql
 with
 
 source as (
@@ -19,8 +18,8 @@ renamed as (
         geolocation_zip_code_prefix,
         geolocation_lat as latitude,
         geolocation_lng as longitude,
-        LOWER(TRIM(geolocation_city)) as geolocation_city,
-        LOWER(TRIM(geolocation_state)) as geolocation_state
+        geolocation_city as geolocation_city,
+        geolocation_state as geolocation_state
     from deduplicated
     where row_num = 1
 )
