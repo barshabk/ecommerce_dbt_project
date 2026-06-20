@@ -1,4 +1,3 @@
--- stg_brazillian_dbt__order_reviews.sql
 with
 
 source as (
@@ -7,18 +6,11 @@ source as (
 
 renamed as (
     select
-        -- ids
         review_id,
         order_id,
-
-        -- numerics
         review_score,
-
-        -- strings
-        LOWER(TRIM(review_comment_title)) as review_comment_title,
-        LOWER(TRIM(review_comment_message)) as review_comment_message,
-
-        -- timestamps
+        review_comment_title as review_comment_title,
+        review_comment_message as review_comment_message,
         review_creation_date,
         review_answer_timestamp
 

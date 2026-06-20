@@ -10,8 +10,8 @@ renamed as (
         
         seller_id,
         seller_zip_code_prefix,
-        LOWER(TRIM(seller_city)) as seller_city,
-        LOWER(TRIM(seller_state)) as seller_state
+        seller_city as seller_city,
+        seller_state as seller_state
 
         case seller_city
         when 'sao paulo sp' then 'sao paulo'

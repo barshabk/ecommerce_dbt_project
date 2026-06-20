@@ -1,4 +1,3 @@
--- stg_brazillian_dbt__orders.sql
 with
 
 source as (
@@ -7,14 +6,9 @@ source as (
 
 renamed as (
     select
-        -- ids
         order_id,
         customer_id,
-
-        -- strings
-        LOWER(TRIM(order_status)) as order_status,
-
-        -- timestamps
+        order_status as order_status,
         order_purchase_timestamp,
         order_approved_at,
         order_delivered_carrier_date,
