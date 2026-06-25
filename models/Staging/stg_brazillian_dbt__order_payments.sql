@@ -10,9 +10,20 @@ renamed as (
         payment_sequential,
         payment_installments,
         payment_value,
-        LOWER(TRIM(payment_type)) as payment_type
-
+        case 
+            when payment_type= 'credit_card' then 'Credit Card'
+            when payment_type= 'boleto' then 'Boleto'
+            when payment_type= 'voucher' then 'Voucher'
+            when payment_type= 'debit_card' then 'Debit Card'
+            when payment_type= 'not_defined' then 'Not Defined'
+            else 'Unknown'
+        end as payment_type
+        case 
+            when payment_type in ('credit_card,' 'debit_card') then 'Card'
+            else 'Cash'
+        end as payment_method
     from source
+
 )
 
 select * from renamed
