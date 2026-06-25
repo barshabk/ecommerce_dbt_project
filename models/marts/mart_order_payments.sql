@@ -11,13 +11,9 @@ select
     order_payments.payment_type,
     order_payments.payment_value,
     order_payments.payment_installments,
+    order_payments.payment_method,
     orders.customer_id,
     orders.order_status
-    case 
-        when order_payments.payment_type = 'credit_card' then 1
-        when order_payments.payment_type = 'debit_card' then 1
-        else 0
-    end as card_payment
 from order_payments
 join orders
     on order_payments.order_id = orders.order_id
